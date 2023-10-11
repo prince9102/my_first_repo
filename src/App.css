@@ -1,0 +1,29 @@
+
+
+/* Works for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+nav{
+  background-color: antiquewhite;
+  padding: 20px;
+  font-size: 20px;
+  
+ 
+}
+
+nav a{
+  text-decoration: none;
+  margin: 10px;
+  
+}
+/* 
+nav a.active{
+  font-weight: bold;
+  font-size: large;
+} */

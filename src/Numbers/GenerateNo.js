@@ -27,7 +27,7 @@ const GenerateNo = () => {
 
 
         if (!isNaN(inputNumber) && inputNumber > 0) {
-            const numbers = Array.from({ length: inputNumber }, (index) => index + 1);
+            const numbers = Array.from({ length: inputNumber }, (_ , index) => index + 1);
             setNewNo(numbers)
             
            
@@ -50,7 +50,7 @@ const submit =()=>{
             })
             .catch(error=>console.log(error))
             
-          // }        
+        //   }        
 }
 
 
@@ -82,12 +82,12 @@ color:item==selectedValue ? 'white' : 'black',
 border:item==selectedValue ? '2px solid black' : ''
 
       }}
+onClick={()=>setSelectedValue(item)}
       >
 
  
 {item}
 
-onClick={()=>setSelectedValue(item)}
     </div>
 </Col>
 })}

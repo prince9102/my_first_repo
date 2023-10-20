@@ -11,24 +11,28 @@ import AddBook from './AddBook'
 import Tables from './Table'
 import UpdateBook from './UpdateBook'
 import UserTable from './UserTable'
+import Protected from './Protected'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Main() {
   return (
       <>
+      <ToastContainer/>
     <BrowserRouter>
       <Header/>
 
 <Routes>
-    <Route path='register' element={<Register/>}/>
-    <Route path='/login' element={<Login/>}/>
-    <Route path='/main' element={<Dashboard/>}/>
-    <Route path='/book' element={<AddBook/>}/>
-    <Route path='/author' element={<Author/>}/>
-    <Route path='/category' element={<Category/>}/>
-    <Route path='/rack' element={<Rack/>}/>
-    <Route path='/table' element={<Tables/>}/>
-    <Route path='/update/:id' element={<UpdateBook/>}/>
-    <Route path='/usertable' element={<UserTable/>}/>
+    <Route path='/register' element={<Register/>}/>
+    <Route path='/login' element={<Protected><Login/></Protected>}/>
+    <Route path='/main' element={<Protected><Dashboard/></Protected>}/>
+    <Route path='/book' element={<Protected><AddBook/></Protected>}/>
+    <Route path='/author' element={<Protected><Author/></Protected>}/>
+    <Route path='/category' element={<Protected><Category/></Protected>}/>
+    <Route path='/rack' element={<Protected><Rack/></Protected>}/>
+    <Route path='/table' element={ <Protected><Tables/></Protected>}/>
+    <Route path='/update/:id' element={ <Protected><UpdateBook/></Protected>}/>
+    <Route path='/usertable' element={<Protected><UserTable/></Protected>}/>
 </Routes>
 
     </BrowserRouter>

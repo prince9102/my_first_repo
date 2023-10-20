@@ -31,7 +31,7 @@ const Login = () => {
      item.username==username && item.password ==password 
     
  ))
-//  console.log(details , 'details')
+
  
  if(details.length>0){
     localStorage.setItem('username' , JSON.stringify(details[0].username))
@@ -49,6 +49,7 @@ const Login = () => {
  else{
     Swal.fire('Invalid Credential')
  }
+
  dataChek()
  })
 .catch(error=>console.log(error))
@@ -61,24 +62,7 @@ const Login = () => {
     }
  
     }
-  
-//  const validate=()=>{
-//   let result = true
-//   if (username === '' || username === null) {
-//        result = false;
- 
-//      }
- 
-//      if (password === '' || password === null) {
-//        result = false;
-       
-//      }
-//      return result ;
-//  }
- 
-
- 
- 
+   
    return (
      <div className='container'>
      <div className='card w-50 my-5'>

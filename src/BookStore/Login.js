@@ -3,13 +3,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import {  toast } from 'react-toastify';
 
 const Login = () => {
 
 
-   useEffect(() => {
-      localStorage.clear()
-   }, [])
+   // useEffect(() => {
+   //    localStorage.clear()
+   // }, [])
 
    const [email, setemail] = useState('')
    const [password, setPassword] = useState('')
@@ -28,42 +29,57 @@ const Login = () => {
 
             let details = res.data.filter((item) => (
                item.email ==email && item.password ==password
-               //  && item.role == role
 
             ))
 
 
             if (details.length > 0) {
-               localStorage.setItem('email', JSON.stringify(details[0].email))
-               localStorage.setItem('password', JSON.stringify(details[0].password))
+               const userDetails = details[0]
+
+             localStorage.setItem('user' , JSON.stringify(userDetails))
+
+
+               // localStorage.setItem('email', JSON.stringify(details[0].email))
+               // localStorage.setItem('password', JSON.stringify(details[0].password))
                // localStorage.setItem('role', JSON.stringify(details[0].role))
 
 
 
-               Swal.fire(
-                  'Login!',
-                  'You are login Sucessfully...',
-                  'success'
-               )
+
+               toast.success('Login Successfully !', {
+                  position: toast.POSITION.TOP_CENTER
+              });
+
+              navigate('/main')
+
+               // Swal.fire(
+               //    'Login!',
+               //    'You are login Sucessfully...',
+               //    'success'
+               // )
 
             }
 
         
             else {
-               Swal.fire('Invalid Credential')
+               // Swal.fire('Invalid Credential')
+
+               toast.error('Invalid Data !', {
+                  position: toast.POSITION.TOP_CENTER
+              });
             }
-            dataChek()
+            // dataChek()
          })
          .catch(error => console.log(error))
 
    }
 
-   const dataChek = () => {
-      if (localStorage.getItem('email') ) {
-         navigate('/main')
-      }
+   // const dataChek = () => {
+   //    if (localStorage.getItem('user') ) {
+   //       navigate('/main')
+   //    }
 
-   }
+   // }
 
 
    return (
@@ -78,12 +94,12 @@ const Login = () => {
                      <input type="text" className='form-control' placeholder='enter email' onChange={(e) => setemail(e.target.value)} />
                      <label htmlFor="">Password :</label>
                      <input type="password" placeholder='enter password' className='form-control' onChange={(e) => setPassword(e.target.value)} /> 
-                     {/* <label htmlFor="">Role : </label>
-                     <select className='form-control' >
+                     <label htmlFor="">Role : </label>
+                     <select className='form-control' onChange={(e)=>setRole(e.target.value)} >
                      <option value="" default >Select Role</option>
                         <option value="Admin">Admin</option>
                         <option value="User">User</option>
-                     </select> */}
+                     </select>
                      <button onClick={handleSubmit} className='btn btn-primary m-2'>Login</button>
                   </div>
                </div>

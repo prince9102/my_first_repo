@@ -3,17 +3,23 @@ import ReactDOM from 'react-dom/client';
 // import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 
 import Main from './BookStore/Book';
 import GenerateNo from './Numbers/GenerateNo';
 import Date from './Numbers/Date';
+import Pagination from './Numbers/Pagination';
+import Employee from './EmployeeAttendance/Employee';
+import MainAuth from './Authenticate/MainAuth';
 // import Main from './components/Main';
 // import CrudMain from './components/CrudMain';
 // import Table from './newComponents/table';
 // import Validation from './newComponents/validation';
 // import PostOffice from './newComponents/PostOffice';
+
 
 
 
@@ -27,11 +33,18 @@ import Date from './Numbers/Date';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+<ToastContainer/>
+{/* <Employee/> */}
+
+{/* <MainAuth/> */}
+
+  {/* <ContextMain/> */}
   
+  {/* <Pagination/> */}
 
-<Date/>
+{/* <Date/> */}
 
-{/* <Main/> */}
+<Main/>
 {/* <GenerateNo/> */}
 
   {/* <App/> */}

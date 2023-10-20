@@ -28,23 +28,6 @@ const PostOffice = () => {
     }, [])
 
 
-
-    // useEffect(() => {
-
-    //     handleSearch()
-    // }, [])
-
-    // const handleSearch = () => {
-    //     const newData = data.filter((d) => {
-    //         if (search == '' || d.Name.toLowerCase().includes(search.toLowerCase())) {
-    //             return d;
-    //         }
-
-    //     })
-    //     setData(newData)
-    // }
-
-
     return (
         <>
 

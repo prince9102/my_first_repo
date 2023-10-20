@@ -1,9 +1,6 @@
 import axios from 'axios'
-
 import React, { useEffect, useState } from 'react';
 import { Row , Col} from 'react-bootstrap';
-
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 const GetPost = () => {
@@ -28,7 +25,7 @@ const GetPost = () => {
 
 </div>
 
-{/* <div style={{display: 'flex', flexDirection: 'row'}}> */}
+
 <Row>
  {data.filter((d)=>{
   if(search == '' || d.username.toLowerCase().includes(search.toLowerCase())){
@@ -50,7 +47,7 @@ const GetPost = () => {
     </Card>
     </Col>})}
     </Row>
-    {/* </div> */}
+  
 
     <button 
     onClick={()=>{
